@@ -1,4 +1,4 @@
-module github.com/psycofdj/yaml-path
+module github.com/ecbaldwin/yaml-path
 
 go 1.23.2
 

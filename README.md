@@ -75,7 +75,7 @@ Outputs:
 
 Get a local copy of this repo :
 ```
-git clone https://github.com/psycofdj/yaml-path.git
+git clone https://github.com/ecbaldwin/yaml-path.git
 ```
 
 Install emacs `yaml-path` package:
