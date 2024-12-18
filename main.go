@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/alecthomas/kingpin/v2"
 	"github.com/prometheus/common/version"
-	"gopkg.in/alecthomas/kingpin.v2"
-	yml "gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 )
@@ -22,7 +22,7 @@ func main() {
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
 
-	yml.Configure(*sep, *attr)
+	yaml.Configure(*sep, *attr)
 	var buff []byte
 	var err error
 	if *filePath != "" {
@@ -34,7 +34,7 @@ func main() {
 	} else {
 		buff, _ = ioutil.ReadAll(os.Stdin)
 	}
-	path, err := yml.PathAtPoint(*line-1, *col, buff)
+	path, err := yaml.PathAtPoint(*line-1, *col, buff)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
