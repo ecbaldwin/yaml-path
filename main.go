@@ -5,7 +5,7 @@ import (
 	"github.com/alecthomas/kingpin/v2"
 	"github.com/prometheus/common/version"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
+	"io"
 	"os"
 )
 
@@ -26,13 +26,13 @@ func main() {
 	var buff []byte
 	var err error
 	if *filePath != "" {
-		buff, err = ioutil.ReadFile(*filePath)
+		buff, err = os.ReadFile(*filePath)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
 	} else {
-		buff, _ = ioutil.ReadAll(os.Stdin)
+		buff, _ = io.ReadAll(os.Stdin)
 	}
 	path, err := yaml.PathAtPoint(*line-1, *col, buff)
 	if err != nil {
